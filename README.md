@@ -1,31 +1,30 @@
-# 📝 Supabase Notes Backend
+ Supabase Notes Backend
 
 A minimal backend for personal notes using Supabase Edge Functions.
 
----
+--------------------------------------------------------------------
 
-## ✅ Schema Design
+ Schema Design
 
-**Why?**
+Why?
 - `uuid` ensures secure, unique identifiers.
 - `title` is required; `content` is optional.
 - `created_at` and `updated_at` make it easy to sort and audit notes.
 
----
+------------------------------------------------------------------------------
+ API Endpoints
 
-## 🧠 API Endpoints
+ `POST /notes`
+- Why: POST is used to create a new note.
+- Reads from: Request body.
 
-### `POST /notes`
-- **Why:** POST is used to create a new note.
-- **Reads from:** Request body.
+ `GET /notes`
+- Why: GET is used to retrieve notes.
+- Reads from: Authorization header (user context).
 
-### `GET /notes`
-- **Why:** GET is used to retrieve notes.
-- **Reads from:** Authorization header (user context).
+-------------------------------------------------------------
 
----
-
-## 🚀 Setup & Deployment
+Setup & Deployment
 
 1. Create a Supabase project.
 2. Enable Edge Functions in your Supabase dashboard.
@@ -39,11 +38,11 @@ A minimal backend for personal notes using Supabase Edge Functions.
    - `SUPABASE_URL`
    - `SUPABASE_ANON_KEY`
 
----
+-----------------------------------------------------------------------
 
-## 🔧 Demo
-
-### ➕ Create a Note
+ Demo
+ 
+ Create a Note
 
 ```bash
 curl -X POST https://<project>.functions.supabase.co/post_notes \
@@ -52,7 +51,7 @@ curl -X POST https://<project>.functions.supabase.co/post_notes \
   -d '{"title":"Test Note", "content":"This is a test."}'
 ```
 
-**Expected Response:**
+Expected Response:
 ```json
 {
   "data": [
@@ -71,14 +70,14 @@ curl -X POST https://<project>.functions.supabase.co/post_notes \
 
 ---
 
-### 📄 List Notes
+List Notes
 
 ```bash
 curl -X GET https://<project>.functions.supabase.co/get_notes \
   -H "Authorization: Bearer <your-access-token>"
 ```
 
-**Expected Response:**
+Expected Response:
 ```json
 {
   "data": [
@@ -97,7 +96,7 @@ curl -X GET https://<project>.functions.supabase.co/get_notes \
 
 ---
 
-## 📁 Project Structure
+Project Structure
 
 ```
 supabase-notes-backend/
